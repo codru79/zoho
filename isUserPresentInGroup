@@ -1,0 +1,22 @@
+bool isUserPresentInGroup(string emailAddress)
+{
+response = invokeurl
+[
+	url :"https://desk.zoho.com/api/v1/groups/257690000003082003/users"
+	type :GET
+	connection:"zoho_desk"
+];
+info response;
+if(!isNull(response.get("data")))
+{
+	userDetails = response.get("data").toList();
+	for each  user in userDetails
+	{
+		if(user.get("emailAddress").equalsIgnoreCase(emailAddress))
+		{
+			return true;
+		}
+	}
+}
+return false;
+}
