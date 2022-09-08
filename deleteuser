@@ -1,0 +1,25 @@
+string deleteuser(string contact_email)
+{
+searchusers = invokeurl
+[
+	url :"https://desk.zoho.com/api/v1/users?emailAddress=" + contact_email
+	type :GET
+	connection:"zoho_desk"
+];
+var1 = searchusers.getJson("data").size();
+//info var1;
+if(var1 > 0)
+{
+	user_id = searchusers.getJson("data").get(0).get("id");
+	info user_id;
+	jsonString2 = {"status":"DISABLED"};
+	setusertodisabled = invokeurl
+	[
+		url :"https://desk.zoho.com/api/v1/users/" + user_id
+		type :PATCH
+		parameters:jsonString2 + ""
+		connection:"zoho_desk"
+	];
+}
+return setusertodisabled;
+}
