@@ -1,0 +1,10 @@
+void getzpeopledata(string employeeid)
+{
+searchMap = Map();
+searchMap.put("searchField","Employee_type.id");
+searchMap.put("searchOperator","Like");
+searchMap.put("searchText",employeeid);
+//Execute the get records task to fetch the search result 
+response = zoho.people.getRecords("P_Employee",0,20,searchMap);
+info response;
+}
