@@ -1,0 +1,36 @@
+void sendusermanagersemail()
+{
+//Create map to hold search condition 1 
+searchMap2 = Map();
+searchMap2.put("searchField","Employeestatus");
+searchMap2.put("searchOperator","Like");
+searchMap2.put("searchText","Active");
+searchMap2.put("searchCriteria","AND");
+//Create map to hold search condition 2
+searchMap3 = Map();
+searchMap3.put("searchField","Division");
+searchMap3.put("searchOperator","Like");
+//searchMap3.put("searchText","hpe.com");
+searchMap3.put("searchText","coverletter.tech");
+//searchMap3.put("searchCriteria","AND");
+searchList = List();
+searchList.add(searchMap2);
+searchList.add(searchMap3);
+//Execute the get records task to fetch the search result 
+getData = zoho.people.getRecords("P_Employee",0,200,searchList);
+email = List();
+//info getData;
+for each  getd in getData
+{
+	email.add(getd.get("User_Manager_email"));
+}
+//info email;
+sendmail
+[
+	from :zoho.adminuserid
+	to :email
+	cc:"codrut.dumbrava@coverletter.ro"
+	subject :"coverletter.tech services – monthly bonuses"
+	message :"<p>Dear Partner, <p>If there are any service bonuses or extra hours for the current month please submit them to payroll@coverletter.ro by 27th EoD.<p><p>Thank you,<p><p><p>coverletter.tech Team"
+]
+}
