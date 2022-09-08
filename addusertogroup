@@ -1,0 +1,36 @@
+bool addusertogroup(string contact_email)
+{
+searchusers = invokeurl
+[
+	url :"https://desk.zoho.com/api/v1/users?emailAddress=" + contact_email
+	type :GET
+	connection:"zoho_desk"
+];
+var1 = searchusers.getJson("data").size();
+//info var1;
+if(var1 > 0)
+{
+	user_id = searchusers.getJson("data").get(0).get("id");
+	info user_id;
+}
+group_id = Collection("id":"257690000003082003");
+jsonString = {"groups":{group_id}};
+addusertogroup = invokeurl
+[
+	url :"https://desk.zoho.com/api/v1/users/" + user_id + "/groups/associate"
+	type :POST
+	parameters:jsonString.toString()
+	connection:"zoho_desk"
+];
+var2 = addusertogroup.getJson("results").size();
+if(var2 > 0)
+{
+	success = addusertogroup.getJson("results").get(0).get("success");
+}
+var3 = addusertogroup.getJson("errorCode").size();
+if(var3 > 0)
+{
+	success = false;
+}
+return success;
+}
