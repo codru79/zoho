@@ -14,7 +14,7 @@ if(var.get("ApprovalStatus") == "Pending")
 	zleaveid = var.get("Zoho_ID");
 	info zleaveid;
 	param_map = Map();
-	param_map.put("Reasonforleave","Automated approval");
+	param_map.put("Notes","Automated approval");
 	param_map.put("recordid",zleaveid);
 	//Execute the Zoho People integration task to update the user Reason for Leave field with text Automated Approval
 	//response1 = zoho.people.update("P_Employee",param_map);
