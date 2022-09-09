@@ -1,3 +1,5 @@
+//custom scheduler in Z People
+
 searchMap = Map();
 searchMap.put("searchField","To");
 searchMap.put("searchOperator","After");
@@ -6,3 +8,15 @@ searchMap.put("searchText", zoho.currentdate.toStartOfMonth());
 //Execute the get records task to fetch the search result 
 response = zoho.people.getRecords("P_ApplyLeave",0,20,searchMap);
 info response;
+for each  var in response
+{
+	zleaveid = var.get(17);
+	if(var.get(8)=="Pending")
+	{
+	param_map = Map();
+	param_map.put("Reasonforleave","AutomatedApproval");
+	param_map.put("recordid",zleaveid);	
+	//Execute the Zoho People integration task to update the user nots section with text Inactive
+	response1 = zoho.people.update("P_Employee",param_map);
+	}
+}
