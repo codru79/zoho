@@ -1,0 +1,8 @@
+searchMap = Map();
+searchMap.put("searchField","To");
+searchMap.put("searchOperator","After");
+searchMap.put("searchText", zoho.currentdate.toStartOfMonth());
+
+//Execute the get records task to fetch the search result 
+response = zoho.people.getRecords("P_ApplyLeave",0,20,searchMap);
+info response;
