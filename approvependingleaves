@@ -9,14 +9,14 @@ response = zoho.people.getRecords("P_ApplyLeave",0,20,searchMap);
 //info response;
 for each  var in response
 {
-	if(var.get("ApprovalStatus") == "Pending")
-	{
+if(var.get("ApprovalStatus") == "Pending")
+{
 	zleaveid = var.get("Zoho_ID");
 	info zleaveid;
 	param_map = Map();
-	param_map.put("ApprovalStatus","Approved");
+	param_map.put("Reasonforleave","Automated approval");
 	param_map.put("recordid",zleaveid);
-	//Execute the Zoho People integration task to update the user nots section with text Inactive
+	//Execute the Zoho People integration task to update the user Reason for Leave field with text Automated Approval
 	//response1 = zoho.people.update("P_Employee",param_map);
-	}
+}
 }
