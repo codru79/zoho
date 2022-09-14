@@ -27,11 +27,7 @@ if(var.get("ApprovalStatus") == "Pending" && var.get("Employee_ID") == "Codrut D
 	recordiddata = Map();
 	recordiddata.put("recordId",zleaveid);
 	recordiddata.put("inputData",param_map);
-	
-	data = List();
-	data.add(recordiddata);
-	data.add(inputdata);
-	//info recordiddata;
+
 	updateleaverequest = invokeurl
 	[
 		url :"https://people.zoho.com/people/api/forms/json/P_ApplyLeave/updateRecord"
