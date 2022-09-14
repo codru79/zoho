@@ -1,5 +1,4 @@
 //custom scheduler in Z People
-
 searchMap = Map();
 searchMap.put("searchField","To");
 searchMap.put("searchOperator","After");
@@ -14,31 +13,31 @@ if(var.get("ApprovalStatus") == "Pending" && var.get("Employee_ID") == "Codrut D
 	zleaveid = var.get("Zoho_ID");
 	zemplid = var.get("Employee_ID.ID");
 	zLeavetype = var.get("Leavetype.ID");
+	zFrom=var.get("From");
+	ZTo=var.get("To");
 	//info zleaveid;
 	param_map = Map();
 	param_map.put("Notes","Automated approval");
-	//param_map.put("recordid",zleaveid);
-	//param_map.put("Employee_ID",zemplid);
-	//param_map.put("Leave type",zLeavetype);
-	//Execute the Zoho People integration task to update the user Reason for Leave field with text Automated Approval
-	//response1 = zoho.people.update("P_ApplyLeave",param_map);
-	//info response1;
-
-	//vers2 using invokeurl
+	param_map.put("Employee_ID",zemplid);
+	param_map.put("Leavetype",zLeavetype);
+	param_map.put("From",zFrom);
+	param_map.put("To",ZTo);
 	inputdata = Map();
 	inputdata.put("inputData",param_map);
 	recordiddata = Map();
-	recordiddata.put("recordid",zleaveid);
+	recordiddata.put("recordId",zleaveid);
+	recordiddata.put("inputData",param_map);
+	
 	data = List();
 	data.add(recordiddata);
 	data.add(inputdata);
-	info data;
+	//info recordiddata;
 	updateleaverequest = invokeurl
 	[
-	url: "https://people.zoho.com/people/api/forms/json/P_ApplyLeave/updateRecord"
-	type :POST
-	parameters:data.toString()
-	connection:"internal_zoho_people"
+		url :"https://people.zoho.com/people/api/forms/json/P_ApplyLeave/updateRecord"
+		type :POST
+		parameters:recordiddata
+		connection:"internal_zoho_people"
 	];
 	info updateleaverequest;
 }
