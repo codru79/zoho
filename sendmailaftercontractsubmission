@@ -5,8 +5,8 @@ for each  doc in mergedDocs
 	signed_data = doc.get("signed_data");
 	email = signed_data.keys().get(1);
 	data = doc.get("data");
-	firstname = data.keys().get(2);
-	lastname = data.keys().get(5);
+	name = data.values().get(4);
+	
 }
 sendmail
 [
