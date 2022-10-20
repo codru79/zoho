@@ -5,12 +5,12 @@ for each  doc in mergedDocs
 	signed_data = doc.get("signed_data");
 	if(signed_data.keys().size() > 1)
 	{
-		email = signed_data.keys().get(0);
+		email = signed_data.keys().get(1);
 	}
 	data = doc.get("data");
 	if(data.size() > 4)
 	{
-		name = data.get(4).values();
+		name = data.values().get(4);
 	}
 }
 sendmail
@@ -18,5 +18,5 @@ sendmail
 	from :zoho.adminuserid
 	to :"codrut.dumbrava@coverletter.ro"
 	subject :"Employee Sworn Statement"
-	message :email + "Dear colleague," + " <br> <br>" + "Please proceed to sign the Employee Sworn Statement as a part of the <a href=https://help.coverletter.ro/portal/en/kb/articles/coverletter-tech-employee-onboarding-process>Onboarding Process</a>.<br>" + "Should you need any help please write an email to payroll@coverletter.ro or submit a ticket <a href=https://help.coverletter.ro/>here</a><br><br>" + "Thank you,<br>" + "coverletter.tech Team" + name
+	message :email + " Dear colleague," + " <br> <br>" + "Please proceed to sign the Employee Sworn Statement as a part of the <a href=https://help.coverletter.ro/portal/en/kb/articles/coverletter-tech-employee-onboarding-process>Onboarding Process</a>.<br>" + "Should you need any help please write an email to payroll@coverletter.ro or submit a ticket <a href=https://help.coverletter.ro/>here</a><br><br>" + "Thank you,<br>" + "coverletter.tech Team " + name +"|" + data
 ]
