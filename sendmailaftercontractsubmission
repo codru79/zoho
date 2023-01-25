@@ -23,5 +23,5 @@ sendmail
 	from :zoho.adminuserid
 	to :"codrut.dumbrava@coverletter.ro"
 	subject :"Employee Sworn Statement"
-	message :(email1 + email0) + " Dear colleague," + " <br> <br>" + "Please proceed to sign the Employee Sworn Statement as a part of the <a href=https://help.coverletter.ro/portal/en/kb/articles/coverletter-tech-employee-onboarding-process>Onboarding Process</a>.<br>" + "Should you need any help please write an email to payroll@coverletter.ro or submit a ticket <a href=https://help.coverletter.ro/>here</a><br><br>" + "Thank you,<br>" + "coverletter.tech Team " + name + namefinal + "||" + data
+	message :(email1 + email0) + " Dear colleague," + " <br> <br>" + "Please proceed to sign the Employee Sworn Statement as a part of the <a href=https://help.coverletter.ro/portal/en/kb/articles/coverletter-tech-employee-onboarding-process>Onboarding Process</a>.<br>" + "Should you need any help please write an email to payroll@coverletter.ro or submit a ticket <a href=https://help.coverletter.ro/>here</a><br><br>" + "Thank you,<br>" + "coverletter.tech Team " + namefinal + "||"
 ]
