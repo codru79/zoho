@@ -3,7 +3,7 @@ list dateofjoining_isold()
 searchMap1 = Map();
 searchMap1.put("searchField","Dateofexit");
 searchMap1.put("searchOperator","Before");
-searchMap1.put("searchText",zoho.currentdate.toString("dd-MMM-yyyy"));
+searchMap1.put("searchText",zoho.currentdate.toStartOfMonth());
 //Create map to hold search condition 2 
 searchMap2 = Map();
 searchMap2.put("searchField","Employeestatus");
@@ -21,7 +21,7 @@ searchList.add(searchMap2);
 //searchList.add(searchMap3);
 //Execute the get records task to fetch the search result 
 response = zoho.people.getRecords("P_Employee",0,20,searchList);
-//info response;
+info response;
 zdeskusersdisabled = list();
 for each  var in response
 {
