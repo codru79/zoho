@@ -29,6 +29,7 @@ for each  var in response
 	emailid = var.get("EmailID");
 	param_map = Map();
 	param_map.put("Notes","Inactive");
+	param_map.put("Employeestatus", "Terminated");
 	param_map.put("recordid",zpuserid);
 	//Execute the Zoho People integration task to update the user nots section with text Inactive
 	response1 = zoho.people.update("P_Employee",param_map);
