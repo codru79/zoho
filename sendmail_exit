@@ -1,0 +1,29 @@
+response = mergeEventObj.get("response");
+mergedDocs = response.get("mergedDocInfo");
+for each  doc in mergedDocs
+{
+	signed_data = doc.get("signed_data");
+	if(signed_data.keys().size() > 1)
+	{
+		email1 = signed_data.keys().get(1);
+		email0 = signed_data.keys().get(0);
+	}
+	data = doc.get("data");
+	if(data.size() > 0)
+	{
+		name = data.get(0);
+		if(name.values().size() > 4)
+		{
+			namefinal = name.values().get(4);
+		}
+	}
+}
+sendmail
+[
+	from :zoho.adminuserid
+	to :"codrut.dumbrava@coverletter.ro"
+	subject :" coverletter.tech employee " +namefinal+ " exit"
+	message :" Dear Partner,<br> <br>" + "Please be advised that the coverletter.tech employee " +namefinal+ " is going to stop delivering services.<br><br>" + 
+  "exit date<br>" + "email<br>" +email1 + "<br>" + "user manager<br>"+"Thank you,<br>" + "coverletter.tech Team" + 
+  "<br> <br>" + "response" + "<br> <br>" + response + "<br> <br>" + "signed_data" + "<br> <br>" + signed_data 
+]
