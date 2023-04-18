@@ -26,6 +26,6 @@ sendmail
 	to :"codrut.dumbrava@coverletter.ro"
 	subject :" coverletter.tech employee " + firstname +" " + lastname + " exit"
 	message :" Dear Partner,<br> <br>" + "Please be advised that the coverletter.tech employee " +firstname +" " + lastname + " is going to stop delivering services.<br><br>" + 
-  "exit date<br>" + exitdate + "email<br>" +email1 + "<br>" + "user manager<br>"+"Thank you,<br>" + "coverletter.tech Team" + 
+  "exit date<br>" + exitdate + "email<br>" +email0 + "<br>" + "user manager<br>"+"Thank you,<br>" + "coverletter.tech Team" + 
   "<br> <br>" + "response" + "<br> <br>" + response + "<br> <br>" + "signed_data" + "<br> <br>" + signed_data 
 ]
