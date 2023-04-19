@@ -17,7 +17,7 @@ for each  doc in mergedDocs
 			firstname = name.values().get(6);
 			lastname = name.values().get(3);
 			exitdate = name.values().get(13);
-			division = name.values().get(30);
+			division = name.values().get(31);
 			usermanageremail = name.values().get(12);
 		}
 	}
