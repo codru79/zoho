@@ -22,7 +22,7 @@ for each  doc in mergedDocs
 		}
 	}
 }
-if(division.equals("hpe.com"))
+if(division.values().get(0).equals("hpe.com"))
 {
 sendmail
 [
