@@ -22,12 +22,15 @@ for each  doc in mergedDocs
 		}
 	}
 }
+if(division .equals("hpe.com"))
+{
 sendmail
 [
 	from :zoho.adminuserid
 	to :"codrut.dumbrava@coverletter.ro"
 	subject :" coverletter.tech employee " + firstname +" " + lastname + " exit"
 	message:"Dear Partner,<br> <br>" + "Please be advised that the coverletter.tech employee " + firstname +" " + lastname + " is going to stop delivering 
-	services.<br><br>" + "exit date: " + exitdate +"<br>" + "employee email: " + emailangajat + "<br>" + "user manager: "+ usermanageremail + "<br>" + 
-	"division: " + division + "<br><br>" +"Thank you,<br><br>" + "coverletter.tech Team"
+	services.<br><br>" + "Exit date: " + exitdate +"<br>" + "Employee email: " + emailangajat + "<br>" + "User manager: "+ usermanageremail + "<br>" + 
+	"division: " + Division + "<br><br>" +"Thank you,<br><br>" + "coverletter.tech Team"
 ]
+}
