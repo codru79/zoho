@@ -22,6 +22,14 @@ for each  doc in mergedDocs
 		}
 	}
 }
+if(emailangajat.contains("hpe.com"))
+{
+	emailangajathpe=emailangajat;
+}
+	else
+	{
+	emailangajathpe = "confidential";
+	}
 if(division.values().get(0).equals("hpe.com"))
 {
 sendmail
@@ -32,7 +40,7 @@ sendmail
 	bcc :"codrut.dumbrava@coverletter.ro"
 	subject :" coverletter.tech employee " + firstname +" " + lastname + " exit"
 	message:"Dear Partner,<br> <br>" + "Please be advised that the coverletter.tech employee " + firstname +" " + lastname + " is going to stop delivering 
-	services.<br><br>" + "Exit date: " + exitdate +"<br>" + "Employee email: " + emailangajat + "<br>" + "User manager: "+ usermanageremail + "<br>" + 
+	services.<br><br>" + "Exit date: " + exitdate +"<br>" + "Employee email: " + emailangajathpe + "<br>" + "User manager: "+ usermanageremail + "<br>" + 
 	"Division: " + division + "<br><br>" +"Thank you,<br><br>" + "coverletter.tech Team"
 ]
 }
