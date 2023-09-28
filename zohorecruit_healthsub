@@ -1,7 +1,7 @@
-
 getdata = zoho.people.getRecordByID("Compensation",recordID);
 if(getdata.keys().size() > 1)
 {
+	userID = getdata.values().get(0);
 	subscription = getdata.values().get(4);
 	subscription_details = subscription.values().get(0);
 	CNP = subscription_details.get(0).get("CNP");
@@ -9,6 +9,7 @@ if(getdata.keys().size() > 1)
 	givenname = subscription_details.get(0).get("Prenume");
 	fullname = givenname.concat(" ").concat(name);
 }
+info userID;
 info subscription_details;
 info CNP;
 info fullname;
@@ -21,6 +22,6 @@ sendmail
 [
 	from :zoho.adminuserid
 	to :"codrut.dumbrava@coverletter.ro"
-	subject :"log health sub for " + name
-	message :subscription_details + "<br> <br>" + CNP + "<br> <br>"+ fullname
+	subject :"log health sub for " + fullname
+	message :subscription_details + "<br> <br>" + CNP + "<br> <br>" + fullname
 ]
