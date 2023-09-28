@@ -22,5 +22,5 @@ sendmail
 	from :zoho.adminuserid
 	to :"codrut.dumbrava@coverletter.ro"
 	subject :"log health sub for " + name
-	message :subscription + "<br> <br>" + subscription_details + "<br> <br>" + CNP + fullname
+	message :subscription_details + "<br> <br>" + CNP + "<br> <br>"+ fullname
 ]
