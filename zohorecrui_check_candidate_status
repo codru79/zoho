@@ -1,0 +1,23 @@
+//only allows candidate status to Hired if expected salary and strat date are not empty
+entityMap = recruitAPIRequest.toMap().get("record");
+email = entityMap.get("Email");
+response = Map();
+status = entityMap.get("Candidate_Status");
+start_date = ifnull(entityMap.get("Start_date"),"");
+Expected_Salary = ifnull(entityMap.get("Expected_Salary"),"");
+if(status == "Hired")
+{
+if( (Expected_Salary != "" || Expected_Salary==0) && Start_date != "")
+{
+response.put('status','success');
+}
+else
+{
+response.put('status','error');
+response.put('message','Expected_Salary or Start_date is Empty');
+}
+}
+else
+{
+response.put('status','success');
+}
