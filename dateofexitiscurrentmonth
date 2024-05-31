@@ -1,0 +1,36 @@
+list dateofexitiscurrentmonth()
+{
+searchMap1 = Map();
+searchMap1.put("searchField","Dateofexit");
+searchMap1.put("searchOperator","Before");
+searchMap1.put("searchText",zoho.currentdate.eomonth(0));
+searchMap2 = Map();
+searchMap2.put("searchField","Employeestatus");
+searchMap2.put("searchOperator","Like");
+searchMap2.put("searchText","Active");
+searchMap2.put("searchCriteria","AND");
+/*searchMap3 = Map();
+searchMap3.put("searchField","EmailID");
+searchMap3.put("searchOperator","Like");
+searchMap3.put("searchText","codrut.dumbrava@coverletter.ro");
+searchMap3.put("searchCriteria","AND");*/
+searchList = List();
+searchList.add(searchMap1);
+searchList.add(searchMap2);
+//searchList.add(searchMap3);
+//Execute the get records task to fetch the search result 
+response = zoho.people.getRecords("P_Employee",0,20,searchList);
+alldisableusers = List();
+for each  var in response
+{
+	alldisableusers.Add(var.get("EmailID"));
+	zpuserid = var.get("Zoho_ID");
+	emailid = var.get("EmailID");
+	param_map = Map();
+	param_map.put("Notes","DateOfExitIsInCurrentMonth");
+	param_map.put("recordid",zpuserid);
+	//Execute the Zoho People integration task to update the user nots section with text DateOfExitIsInCurrentMonth
+	response1 = zoho.people.update("P_Employee",param_map);
+}
+return alldisableusers;
+}
