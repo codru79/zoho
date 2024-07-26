@@ -4,7 +4,7 @@ searchusers = invokeurl
 [
 	url :"https://desk.zoho.com/api/v1/users?emailAddress=" + contact_email
 	type :GET
-	connection:"zoho_desk"
+	connection:"zoho_desk_2024"
 ];
 var1 = searchusers.getJson("data").size();
 //info var1;
@@ -20,13 +20,15 @@ addusertogroup = invokeurl
 	url :"https://desk.zoho.com/api/v1/users/" + user_id + "/groups/associate"
 	type :POST
 	parameters:jsonString.toString()
-	connection:"zoho_desk"
+	connection:"zoho_desk_2024"
 ];
 var2 = addusertogroup.getJson("results").size();
+//info var2;
 if(var2 > 0)
 {
 	success = addusertogroup.getJson("results").get(0).get("success");
 }
+info success;
 var3 = addusertogroup.getJson("errorCode").size();
 if(var3 > 0)
 {
