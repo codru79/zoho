@@ -1,12 +1,14 @@
 bool isUserPresentInGroup(string emailAddress)
 {
+searchparam = emailAddress.subString(0,3);
+logs = Map();
 response = invokeurl
 [
-	url :"https://desk.zoho.com/api/v1/groups/257690000003082003/users"
+	url :"https://desk.zoho.com/api/v1/groups/257690000003082003/users?searchBy=" + searchparam
 	type :GET
-	connection:"zoho_desk"
+	connection:"zoho_desk_2024"
 ];
-info response;
+//info response;
 if(!isNull(response.get("data")))
 {
 	userDetails = response.get("data").toList();
@@ -14,6 +16,8 @@ if(!isNull(response.get("data")))
 	{
 		if(user.get("emailAddress").equalsIgnoreCase(emailAddress))
 		{
+			logs.insert("User Found. user em-mail adress":user.get("emailAddress"));
+			info logs;
 			return true;
 		}
 	}
