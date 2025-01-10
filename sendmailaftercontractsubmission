@@ -14,7 +14,7 @@ for each  doc in mergedDocs
 		name = data.get(0);
 		if(name.values().size() > 4)
 		{
-			namefinal = name.values().get(4);
+			namefinal = name.values().get(5);
 		}
 	}
 }
